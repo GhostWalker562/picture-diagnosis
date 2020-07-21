@@ -1,0 +1,2 @@
+0 Melanoma
+1 Not Melanoma
