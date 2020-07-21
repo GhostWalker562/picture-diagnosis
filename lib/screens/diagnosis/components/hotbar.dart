@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:picture_diagnosis/bloc/navigation/navigation_bloc.dart';
 import 'package:picture_diagnosis/core/sizeconfig.dart';
 
 class Hotbar extends StatelessWidget {
@@ -19,24 +21,38 @@ class Hotbar extends StatelessWidget {
           horizontal: Sc.blockSizeHorizontal * 5,
           vertical: Sc.blockSizeVertical * 2.5),
       width: Sc.blockSizeHorizontal * 90,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Stack(
         children: [
-          IconButton(
-            icon: Icon(AntDesign.key),
-            onPressed: null,
+          Positioned(
+            child: Container(
+            
+              width: Sc.blockSizeHorizontal * 6,
+              height: 2,
+              color: Colors.white,
+            ),
+            bottom: 5, //11 29.5
+            left: Sc.blockSizeHorizontal * (45-6),
           ),
-          IconButton(
-            icon: Icon(AntDesign.barcode),
-            onPressed: null,
-          ),
-          IconButton(
-            icon: Icon(AntDesign.hourglass),
-            onPressed: null,
-          ),
-          IconButton(
-            icon: Icon(AntDesign.skin),
-            onPressed: null,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconButton(
+                icon: Icon(AntDesign.key),
+                onPressed:()=> BlocProvider.of<NavigationBloc>(context).add(NavigateTo(0)),
+              ),
+              IconButton(
+                icon: Icon(AntDesign.barcode),
+                onPressed: ()=> BlocProvider.of<NavigationBloc>(context).add(NavigateTo(1)),
+              ),
+              IconButton(
+                icon: Icon(AntDesign.hourglass),
+                onPressed: ()=> BlocProvider.of<NavigationBloc>(context).add(NavigateTo(2)),
+              ),
+              IconButton(
+                icon: Icon(AntDesign.skin),
+                onPressed: ()=> BlocProvider.of<NavigationBloc>(context).add(NavigateTo(3)),
+              ),
+            ],
           ),
         ],
       ),
