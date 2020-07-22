@@ -66,11 +66,18 @@ class _XrayPageState extends State<XrayPage> with TickerProviderStateMixin {
                 child: BlocBuilder<TfliteBloc, TfliteState>(
                     builder: (context, state) {
                   if (state is TfliteLoading) {
+
+                     // THIS IS THE OUTPUT FOR LOADING
+
+                    // EDITS PAST HERE ARE GOOD
                     return Center(
                         child: Text("Loading",
                             style: TextStyle(color: Colors.white)));
                   }
                   if (state is TfliteUnloaded) {
+                    // THIS IS THE OUTPUT FOR WHEN AN IMAGE IS NOT SELECTED/
+
+                    // EDITS PAST HERE ARE GOOD
                     return Container(
                         child: Center(
                             child: Column(
@@ -98,6 +105,10 @@ class _XrayPageState extends State<XrayPage> with TickerProviderStateMixin {
                     )));
                   }
                   if (state is TfliteLoaded) {
+                    // THIS IS THE OUTPUT FOR WHEN AN IMAGE IS SELECTED//
+
+                    // EDITS PAST HERE ARE GOOD
+
                     return Container(
                         child: Center(child: Image.file(state.image)));
                   }
