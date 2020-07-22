@@ -11,6 +11,12 @@ class NavigationSuccess extends NavigationState {
   NavigationSuccess(this.page);
 }
 
+class Navigating extends NavigationState {
+  final int page;
+  Navigating(this.page);
+  
+}
+
 class NavigationLoading extends NavigationState {}
 
 class NavigationFailure extends NavigationState {}

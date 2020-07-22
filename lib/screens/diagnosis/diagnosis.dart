@@ -1,15 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:picture_diagnosis/bloc/navigation/navigation_bloc.dart';
-import 'package:picture_diagnosis/core/sizeconfig.dart';
+
 import 'package:picture_diagnosis/screens/diagnosis/components/cancer.dart';
 import 'package:picture_diagnosis/screens/diagnosis/components/hotbar.dart';
+import 'package:picture_diagnosis/screens/diagnosis/components/xray.dart';
 
-class DiagnosisPage extends StatelessWidget {
+class DiagnosisPage extends StatefulWidget {
   const DiagnosisPage({Key key}) : super(key: key);
+
+  @override
+  _DiagnosisPageState createState() => _DiagnosisPageState();
+}
+
+class _DiagnosisPageState extends State<DiagnosisPage> {
+
+  int currentpage = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +30,17 @@ class DiagnosisPage extends StatelessWidget {
             Expanded(child: BlocBuilder<NavigationBloc, NavigationState>(
                 builder: (context, state) {
               if (state is NavigationSuccess) {
-                return CancerPage();
-              } else {
+                if (state.page == 0){currentpage = 0;return CancerPage();}
+                if (state.page == 1){currentpage = 1;return XrayPage(); }
+                
                 return CancerPage(); 
+              } 
+              if (state is Navigating){
+                if (currentpage == 0){return CancerPage();}
+                if (currentpage == 1){return XrayPage();}
+                return CancerPage();
               }
+              return Container(width:0,height:0);
             })),
             Hotbar(),
           ],

@@ -14,6 +14,9 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationState> {
     if ( event is NavigateTo){
       yield NavigationSuccess(event.page);
     }
+    if (event is RequestNavigate){
+      yield Navigating(event.page);
+    }
   }
 
   // Stream<NavigationState> _mapRequestState(NavigateTo event) async* {

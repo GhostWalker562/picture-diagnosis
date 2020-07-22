@@ -38,20 +38,20 @@ class Hotbar extends StatelessWidget {
             children: [
               IconButton(
                 icon: Icon(AntDesign.key),
-                onPressed:()=> BlocProvider.of<NavigationBloc>(context).add(NavigateTo(0)),
+                onPressed: ()=> BlocProvider.of<NavigationBloc>(context).add(RequestNavigate(0)),
               ),
               IconButton(
                 icon: Icon(AntDesign.barcode),
-                onPressed: ()=> BlocProvider.of<NavigationBloc>(context).add(NavigateTo(1)),
+                onPressed: ()=> BlocProvider.of<NavigationBloc>(context).add(RequestNavigate(1)),
               ),
-              IconButton(
-                icon: Icon(AntDesign.hourglass),
-                onPressed: ()=> BlocProvider.of<NavigationBloc>(context).add(NavigateTo(2)),
-              ),
-              IconButton(
-                icon: Icon(AntDesign.skin),
-                onPressed: ()=> BlocProvider.of<NavigationBloc>(context).add(NavigateTo(3)),
-              ),
+              // IconButton(
+              //   icon: Icon(AntDesign.hourglass),
+              //   onPressed: ()=> BlocProvider.of<NavigationBloc>(context).add(RequestNavigate(2)),
+              // ),
+              // IconButton(
+              //   icon: Icon(AntDesign.skin),
+              //   onPressed: ()=> BlocProvider.of<NavigationBloc>(context).add(RequestNavigate(3)),
+              // ),
             ],
           ),
         ],

@@ -50,7 +50,6 @@ class TfliteBloc extends Bloc<TfliteEvent,TfliteState> {
       model: model,
       labels: labels,
     );
-    print("Model Loaded");
   }
 
   pickImage() async {
@@ -63,10 +62,7 @@ class TfliteBloc extends Bloc<TfliteEvent,TfliteState> {
   classifyImage(File image) async {
     var output = await Tflite.runModelOnImage(
       path: image.path,
-      numResults: 2,
-      threshold: 0.5,
-      imageMean: 127.5,
-      imageStd: 127.5,
+
     );
     print(output);
   }

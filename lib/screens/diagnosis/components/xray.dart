@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:picture_diagnosis/bloc/navigation/navigation_bloc.dart';
 import 'package:picture_diagnosis/bloc/tflite/tflite_bloc.dart';
@@ -8,23 +7,23 @@ import 'package:picture_diagnosis/core/sizeconfig.dart';
 import 'package:picture_diagnosis/screens/diagnosis/components/pagecomponents/topbar.dart';
 
 
-class CancerPage extends StatefulWidget {
-  const CancerPage({Key key}) : super(key: key);
+class XrayPage extends StatefulWidget {
+  const XrayPage({Key key}) : super(key: key);
 
   @override
-  _CancerPageState createState() => _CancerPageState();
+  _XrayPageState createState() => _XrayPageState();
 }
 
-class _CancerPageState extends State<CancerPage> with TickerProviderStateMixin {
+class _XrayPageState extends State<XrayPage> with TickerProviderStateMixin {
   AnimationController anim;
   Animation fadeOut;
 
   @override
   void initState() {
     BlocProvider.of<TfliteBloc>(context).add(TfliteLoadModel(
-        "assets/melanoma/model_unquant.tflite", "assets/melanoma/labels.txt"));
-    anim = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 250));
+        "assets/xray/model_unquant.tflite", "assets/xray/labels.txt"));
+    anim =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
     fadeOut = anim.drive(Tween<double>(begin: 1, end: 0));
     super.initState();
   }
@@ -48,11 +47,14 @@ class _CancerPageState extends State<CancerPage> with TickerProviderStateMixin {
             child: BlocListener<NavigationBloc, NavigationState>(
               listener: (BuildContext context, state) {
                 if (state is Navigating) {
-                  if (state.page != 0) {
+            
+                  if (state.page != 1) {
+                   
                     anim.forward();
+                  
                     anim.addStatusListener((AnimationStatus status) {
                       if (status == AnimationStatus.completed) {
-                  
+                    
                         BlocProvider.of<NavigationBloc>(context)
                             .add(NavigateTo(state.page));
                       }
@@ -82,7 +84,7 @@ class _CancerPageState extends State<CancerPage> with TickerProviderStateMixin {
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold)),
                             TextSpan(
-                                text: "Melanoma",
+                                text: "Xray",
                                 style: GoogleFonts.vollkorn(
                                     color: Color(0xFF468C98),
                                     fontWeight: FontWeight.bold)),
