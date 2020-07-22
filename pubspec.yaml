@@ -36,6 +36,7 @@ dependencies:
   bloc: ^5.0.1
   flutter_icons: ^1.1.0
   google_fonts: ^1.1.0
+  flutter_spinkit: "^4.1.2"
 
 dev_dependencies:
   flutter_test:

@@ -11,8 +11,9 @@ class TfliteUnloaded extends TfliteState {}
 // Set when image is loaded
 class TfliteLoaded extends TfliteState {
   final File image;
+  final List<dynamic> output;
 
-  TfliteLoaded(this.image);
+  TfliteLoaded(this.image, this.output);
 
 }
 

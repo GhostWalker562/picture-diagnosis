@@ -40,7 +40,7 @@ class _DiagnosisPageState extends State<DiagnosisPage> {
                 if (currentpage == 1){return XrayPage();}
                 return CancerPage();
               }
-              return Container(width:0,height:0);
+              return CancerPage();
             })),
             Hotbar(),
           ],

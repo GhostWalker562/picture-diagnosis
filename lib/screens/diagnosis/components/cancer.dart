@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:picture_diagnosis/bloc/navigation/navigation_bloc.dart';
 import 'package:picture_diagnosis/bloc/tflite/tflite_bloc.dart';
@@ -65,8 +66,7 @@ class _CancerPageState extends State<CancerPage> with TickerProviderStateMixin {
                     builder: (context, state) {
                   if (state is TfliteLoading) {
                     return Center(
-                        child: Text("Loading",
-                            style: TextStyle(color: Colors.white)));
+                        child: SpinKitWave(color:Colors.white));
                   }
                   if (state is TfliteUnloaded) {
                     return Container(

@@ -9,20 +9,20 @@ import 'package:tflite/tflite.dart';
 part 'tflite_event.dart';
 part 'tflite_state.dart';
 
-class TfliteBloc extends Bloc<TfliteEvent,TfliteState> {
+class TfliteBloc extends Bloc<TfliteEvent, TfliteState> {
   TfliteBloc() : super(TfliteLoading());
 
   @override
   Stream<TfliteState> mapEventToState(TfliteEvent event) async* {
-    if (event is TfliteLoadModel){
-      yield * _mapLoadModelToState(event);
+    if (event is TfliteLoadModel) {
+      yield* _mapLoadModelToState(event);
     }
-    if (event is TfliteClassify){
-      yield * _mapClassifyToState(event);
+    if (event is TfliteClassify) {
+      yield* _mapClassifyToState(event);
     }
   }
 
-  Stream<TfliteState> _mapLoadModelToState(TfliteLoadModel event ) async*{
+  Stream<TfliteState> _mapLoadModelToState(TfliteLoadModel event) async* {
     yield TfliteLoading();
     try {
       await loadModel(
@@ -30,20 +30,21 @@ class TfliteBloc extends Bloc<TfliteEvent,TfliteState> {
         labels: event.labels,
       );
       yield TfliteUnloaded();
-    } catch (error){
+    } catch (error) {
       yield TfliteUnloaded();
     }
-  } 
+  }
 
-    Stream<TfliteState> _mapClassifyToState(TfliteClassify event ) async*{
+  Stream<TfliteState> _mapClassifyToState(TfliteClassify event) async* {
     yield TfliteLoading();
     try {
       File image = await pickImage();
-      yield TfliteLoaded(image);
-    } catch (error){
+      List<dynamic> output = await classifyImage(image);
+      yield TfliteLoaded(image,output);
+    } catch (error) {
       yield TfliteUnloaded();
     }
-  } 
+  }
 
   loadModel({@required String model, @required String labels}) async {
     await Tflite.loadModel(
@@ -55,16 +56,14 @@ class TfliteBloc extends Bloc<TfliteEvent,TfliteState> {
   pickImage() async {
     var image = await ImagePicker.pickImage(source: ImageSource.gallery);
     if (image == null) throw Exception();
-    classifyImage(image);
     return image;
   }
 
   classifyImage(File image) async {
     var output = await Tflite.runModelOnImage(
       path: image.path,
-
     );
     print(output);
+    return output;
   }
-
 }
