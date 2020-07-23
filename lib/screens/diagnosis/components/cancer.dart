@@ -96,7 +96,7 @@ class _CancerPageState extends State<CancerPage> with TickerProviderStateMixin {
                         ),
                         Text(
                           "Select an image in the top left corner",
-                          style: GoogleFonts.vollkorn(color: Color(0xFF984447)),
+                          style: GoogleFonts.vollkorn(color: Colors.white),
                         ),
                       ],
                     )));
