@@ -23,26 +23,37 @@ class _DiagnosisPageState extends State<DiagnosisPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF101419),
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/melanoma/backgroundChoice1.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Stack(
           children: [
-            Expanded(child: BlocBuilder<NavigationBloc, NavigationState>(
-                builder: (context, state) {
-              if (state is NavigationSuccess) {
-                if (state.page == 0){currentpage = 0;return CancerPage();}
-                if (state.page == 1){currentpage = 1;return XrayPage(); }
-                
-                return CancerPage(); 
-              } 
-              if (state is Navigating){
-                if (currentpage == 0){return CancerPage();}
-                if (currentpage == 1){return XrayPage();}
-                return CancerPage();
-              }
-              return CancerPage();
-            })),
-            Hotbar(),
+            
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Expanded(child: BlocBuilder<NavigationBloc, NavigationState>(
+                    builder: (context, state) {
+                  if (state is NavigationSuccess) {
+                    if (state.page == 0){currentpage = 0;return CancerPage();}
+                    if (state.page == 1){currentpage = 1;return XrayPage(); }
+                    
+                    return CancerPage(); 
+                  } 
+                  if (state is Navigating){
+                    if (currentpage == 0){return CancerPage();}
+                    if (currentpage == 1){return XrayPage();}
+                    return CancerPage();
+                  }
+                  return CancerPage();
+                })),
+                Hotbar(),
+              ],
+            ),
           ],
         ),
       ),

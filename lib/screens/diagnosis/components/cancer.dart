@@ -65,10 +65,16 @@ class _CancerPageState extends State<CancerPage> with TickerProviderStateMixin {
                 child: BlocBuilder<TfliteBloc, TfliteState>(
                     builder: (context, state) {
                   if (state is TfliteLoading) {
+                    // THIS IS THE OUTPUT FOR LOADING
+
+                    // EDITS PAST HERE ARE GOOD
                     return Center(
                         child: SpinKitWave(color:Colors.white));
                   }
                   if (state is TfliteUnloaded) {
+                    // THIS IS THE OUTPUT FOR WHEN AN IMAGE IS NOT SELECTED/
+
+                    // EDITS PAST HERE ARE GOOD
                     return Container(
                         child: Center(
                             child: Column(
@@ -80,22 +86,27 @@ class _CancerPageState extends State<CancerPage> with TickerProviderStateMixin {
                                 text: "Artifical Insight : ",
                                 style: GoogleFonts.vollkorn(
                                     color: Colors.white,
-                                    fontWeight: FontWeight.bold)),
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold),),
                             TextSpan(
                                 text: "Melanoma",
                                 style: GoogleFonts.vollkorn(
                                     color: Color(0xFF468C98),
+                                    fontSize: 24,
                                     fontWeight: FontWeight.bold)),
                           ]),
                         ),
                         Text(
-                          "Select an image in the top left.",
-                          style: GoogleFonts.vollkorn(color: Colors.white),
+                          "Select an image in the top left corner",
+                          style: GoogleFonts.vollkorn(color: Colors.white, fontSize: 20),
                         ),
                       ],
                     )));
                   }
                   if (state is TfliteLoaded) {
+                     // THIS IS THE OUTPUT FOR WHEN AN IMAGE IS SELECTED//
+
+                    // EDITS PAST HERE ARE GOOD
                     return Container(
                         child: Center(child: Image.file(state.image)));
                   }
