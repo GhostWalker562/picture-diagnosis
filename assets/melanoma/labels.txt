@@ -1,2 +1,2 @@
-0 Melanoma
-1 Not Melanoma
+Melanoma
+Not Melanoma

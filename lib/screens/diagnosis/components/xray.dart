@@ -67,8 +67,7 @@ class _XrayPageState extends State<XrayPage> with TickerProviderStateMixin {
                     builder: (context, state) {
                   if (state is TfliteLoading) {
 
-                     // THIS IS THE OUTPUT FOR LOADING
-
+                    // THIS IS THE OUTPUT FOR LOADING
                     // EDITS PAST HERE ARE GOOD
                     return Center(
                         child: Text("Loading",
@@ -89,17 +88,20 @@ class _XrayPageState extends State<XrayPage> with TickerProviderStateMixin {
                                 text: "Artifical Insight : ",
                                 style: GoogleFonts.vollkorn(
                                     color: Colors.white,
+                                    fontSize: 24,
                                     fontWeight: FontWeight.bold)),
                             TextSpan(
                                 text: "Xray",
                                 style: GoogleFonts.vollkorn(
                                     color: Color(0xFF468C98),
+                                    fontSize: 24,
                                     fontWeight: FontWeight.bold)),
                           ]),
                         ),
                         Text(
                           "Select an image in the top left.",
-                          style: GoogleFonts.vollkorn(color: Colors.white),
+                          
+                          style: GoogleFonts.vollkorn(fontSize: 24,color: Colors.white),
                         ),
                       ],
                     )));

@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -85,28 +86,27 @@ class _CancerPageState extends State<CancerPage> with TickerProviderStateMixin {
                             TextSpan(
                                 text: "Artifical Insight : ",
                                 style: GoogleFonts.vollkorn(
-                                    color: Colors.white,
+                                   fontSize: 24, color: Colors.white,
                                     fontWeight: FontWeight.bold)),
                             TextSpan(
                                 text: "Melanoma",
                                 style: GoogleFonts.vollkorn(
-                                    color: Color(0xFF468C98),
+                                   fontSize: 24, color: Color(0xFF468C98),
                                     fontWeight: FontWeight.bold)),
                           ]),
                         ),
                         Text(
                           "Select an image in the top left.",
-                          style: GoogleFonts.vollkorn(color: Colors.white),
+                          style: GoogleFonts.vollkorn(fontSize: 24,color: Colors.white),
                         ),
                       ],
                     )));
                   }
                   if (state is TfliteLoaded) {
                      // THIS IS THE OUTPUT FOR WHEN AN IMAGE IS SELECTED//
-
                     // EDITS PAST HERE ARE GOOD
                     return Container(
-                        child: Center(child: Image.file(state.image)));
+                        child: Center(child: FadeInUp(child: Image.file(state.image),from: 10,),));
                   }
                   return Container(width:0,height:0);
                 }),
