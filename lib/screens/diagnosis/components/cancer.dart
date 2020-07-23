@@ -86,17 +86,19 @@ class _CancerPageState extends State<CancerPage> with TickerProviderStateMixin {
                                 text: "Artifical Insight : ",
                                 style: GoogleFonts.vollkorn(
                                     color: Colors.white,
+                                    fontSize: 24,
                                     fontWeight: FontWeight.bold),),
                             TextSpan(
                                 text: "Melanoma",
                                 style: GoogleFonts.vollkorn(
                                     color: Color(0xFF468C98),
+                                    fontSize: 24,
                                     fontWeight: FontWeight.bold)),
                           ]),
                         ),
                         Text(
                           "Select an image in the top left corner",
-                          style: GoogleFonts.vollkorn(color: Colors.white),
+                          style: GoogleFonts.vollkorn(color: Colors.white, fontSize: 20),
                         ),
                       ],
                     )));
