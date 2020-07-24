@@ -12,6 +12,7 @@ class Hotbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
+        boxShadow: [BoxShadow(color: Color(0xFFADD9F4),blurRadius: 10)],
           borderRadius: BorderRadius.circular(15),
           color: Color(0xFF476C9B),
           border: Border.all(color: Color(0xFFADD9F4), width: 3)),

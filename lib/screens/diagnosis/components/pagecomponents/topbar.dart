@@ -42,6 +42,7 @@ class _TopBarState extends State<TopBar> {
         children: [
           Container(
             decoration: BoxDecoration(
+              boxShadow: [BoxShadow(color: Color(0xFF984447),blurRadius: 10)],
                 borderRadius: BorderRadius.circular(15),
                 color: Color(0xFF476C9B),
                 border: Border.all(color: Color(0xFF984447), width: 3)),
@@ -58,12 +59,13 @@ class _TopBarState extends State<TopBar> {
           ),
           Container(
             decoration: BoxDecoration(
+              boxShadow: [BoxShadow(color: Color(0xFFADD9F4),blurRadius: 10)],
                 borderRadius: BorderRadius.circular(15),
                 color: Color(0xFF476C9B),
                 border: Border.all(color: Color(0xFFADD9F4), width: 3)),
             height: Sc.blockSizeVertical * 10,
-            width: Sc.blockSizeVertical * 40,
-            child: Center(child: Text(text, style: GoogleFonts.vollkorn(fontSize:24),)),
+            width: Sc.blockSizeVertical * 35,
+            child: Center(child: Text(text, style: GoogleFonts.vollkorn(fontSize:24,color: Colors.white),)),
           ),
         ],
       ),

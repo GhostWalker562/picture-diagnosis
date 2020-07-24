@@ -54,8 +54,8 @@ class TfliteBloc extends Bloc<TfliteEvent, TfliteState> {
     yield TfliteLoading();
     try {
       File image = await pickImage();
-      List<dynamic> output = await classifyImage(await resizeMyImage(image));
-      yield TfliteLoaded(await resizeMyImage(image), output);
+      List<dynamic> output = await classifyImage(image);
+      yield TfliteLoaded(image, output);
     } catch (error) {
       yield TfliteUnloaded();
     }
@@ -77,7 +77,8 @@ class TfliteBloc extends Bloc<TfliteEvent, TfliteState> {
   classifyImage(File image) async {
     var output = await Tflite.runModelOnImage(
       path: image.path,
-      
+        imageMean: 0.0,   // defaults to 117.0
+  imageStd: 255.0, 
     );
     print(output);
     return output;

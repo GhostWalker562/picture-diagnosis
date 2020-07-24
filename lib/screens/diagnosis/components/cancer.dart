@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -75,40 +76,49 @@ class _CancerPageState extends State<CancerPage> with TickerProviderStateMixin {
                     // THIS IS THE OUTPUT FOR WHEN AN IMAGE IS NOT SELECTED/
 
                     // EDITS PAST HERE ARE GOOD
-                    return Container(
-                        child: Center(
-                            child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        RichText(
-                          text: TextSpan(children: [
-                            TextSpan(
-                                text: "Artifical Insight : ",
-                                style: GoogleFonts.vollkorn(
-                                    color: Colors.white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold),),
-                            TextSpan(
-                                text: "Melanoma",
-                                style: GoogleFonts.vollkorn(
-                                    color: Color(0xFF468C98),
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold)),
-                          ]),
-                        ),
-                        Text(
-                          "Select an image in the top left corner",
-                          style: GoogleFonts.vollkorn(color: Colors.white, fontSize: 20),
-                        ),
-                      ],
-                    )));
+                    return FadeInUp(
+                      from: 50,
+                                          child: Container(
+                          child: Center(
+                              child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          RichText(
+                            text: TextSpan(children: [
+                              TextSpan(
+                                  text: "Artifical Insight : ",
+                                  style: GoogleFonts.vollkorn(
+                                      color: Colors.white,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold),),
+                              TextSpan(
+                                  text: "Melanoma",
+                                  style: GoogleFonts.vollkorn(
+                                      color: Color(0xFF468C98),
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold)),
+                            ]),
+                          ),
+                          Text(
+                            "Select an image in the top left corner",
+                            style: GoogleFonts.vollkorn(color: Colors.white, fontSize: 20),
+                          ),
+                        ],
+                      ))),
+                    );
                   }
                   if (state is TfliteLoaded) {
                      // THIS IS THE OUTPUT FOR WHEN AN IMAGE IS SELECTED//
 
                     // EDITS PAST HERE ARE GOOD
                     return Container(
-                        child: Center(child: Image.file(state.image)));
+                        child: Center(
+                            child: Container(
+                                decoration: BoxDecoration(
+                                    color: Color(0xFF476C9B),
+                                    border: Border.all(
+                                        color: Color(0xFFADD9F4), width: 3)),
+                                child: Image.file(state.image))));
                   }
                   return Container(width:0,height:0);
                 }),
