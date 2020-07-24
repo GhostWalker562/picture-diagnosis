@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:picture_diagnosis/bloc/navigation/navigation_bloc.dart';
 import 'package:picture_diagnosis/core/sizeconfig.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Hotbar extends StatelessWidget {
   const Hotbar({Key key}) : super(key: key);
@@ -37,11 +38,11 @@ class Hotbar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               IconButton(
-                icon: Icon(AntDesign.key),
+                icon: Icon(FontAwesomeIcons.allergies),
                 onPressed: ()=> BlocProvider.of<NavigationBloc>(context).add(RequestNavigate(0)),
               ),
               IconButton(
-                icon: Icon(AntDesign.barcode),
+                icon: Icon(FontAwesomeIcons.lungs),
                 onPressed: ()=> BlocProvider.of<NavigationBloc>(context).add(RequestNavigate(1)),
               ),
               // IconButton(

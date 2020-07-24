@@ -23,7 +23,13 @@ class _DiagnosisPageState extends State<DiagnosisPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF101419),
-      body: SafeArea(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/melanoma/backgroundChoice1.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Stack(
           children: [
             

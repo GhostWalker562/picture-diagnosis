@@ -99,9 +99,9 @@ class _XrayPageState extends State<XrayPage> with TickerProviderStateMixin {
                           ]),
                         ),
                         Text(
-                          "Select an image in the top left.",
+                          "Select an image in the top left corner",
                           
-                          style: GoogleFonts.vollkorn(fontSize: 24,color: Colors.white),
+                          style: GoogleFonts.vollkorn(fontSize: 20,color: Colors.white),
                         ),
                       ],
                     )));

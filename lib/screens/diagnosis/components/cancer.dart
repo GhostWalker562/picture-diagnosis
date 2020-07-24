@@ -1,4 +1,3 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -86,27 +85,30 @@ class _CancerPageState extends State<CancerPage> with TickerProviderStateMixin {
                             TextSpan(
                                 text: "Artifical Insight : ",
                                 style: GoogleFonts.vollkorn(
-                                   fontSize: 24, color: Colors.white,
-                                    fontWeight: FontWeight.bold)),
+                                    color: Colors.white,
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold),),
                             TextSpan(
                                 text: "Melanoma",
                                 style: GoogleFonts.vollkorn(
-                                   fontSize: 24, color: Color(0xFF468C98),
+                                    color: Color(0xFF468C98),
+                                    fontSize: 24,
                                     fontWeight: FontWeight.bold)),
                           ]),
                         ),
                         Text(
-                          "Select an image in the top left.",
-                          style: GoogleFonts.vollkorn(fontSize: 24,color: Colors.white),
+                          "Select an image in the top left corner",
+                          style: GoogleFonts.vollkorn(color: Colors.white, fontSize: 20),
                         ),
                       ],
                     )));
                   }
                   if (state is TfliteLoaded) {
                      // THIS IS THE OUTPUT FOR WHEN AN IMAGE IS SELECTED//
+
                     // EDITS PAST HERE ARE GOOD
                     return Container(
-                        child: Center(child: FadeInUp(child: Image.file(state.image),from: 10,),));
+                        child: Center(child: Image.file(state.image)));
                   }
                   return Container(width:0,height:0);
                 }),
