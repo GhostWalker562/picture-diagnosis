@@ -45,13 +45,13 @@ class _TopBarState extends State<TopBar> {
               boxShadow: [BoxShadow(color: Color(0xFF984447),blurRadius: 10)],
                 borderRadius: BorderRadius.circular(15),
                 color: Color(0xFF476C9B),
-                border: Border.all(color: Color(0xFF984447), width: 3)),
+                border: Border.all(color: Color(0xFFADD9F4), width: 3)),
             height: Sc.blockSizeVertical * 10,
             width: Sc.blockSizeVertical * 10,
             child: IconButton(
               icon: Icon(
                 AntDesign.camera,
-                color: Color(0xFF984447),
+                color: Color(0xFFADD9F4),
               ),
               onPressed: () =>
                   BlocProvider.of<TfliteBloc>(context).add(TfliteClassify()),

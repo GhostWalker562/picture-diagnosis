@@ -78,33 +78,42 @@ class _CancerPageState extends State<CancerPage> with TickerProviderStateMixin {
                     // EDITS PAST HERE ARE GOOD
                     return FadeInUp(
                       from: 50,
-                                          child: Container(
+                        child: Container(
+                          padding: EdgeInsets.all(8.0),
                           child: Center(
-                              child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          RichText(
-                            text: TextSpan(children: [
-                              TextSpan(
-                                  text: "Artifical Insight : ",
-                                  style: GoogleFonts.vollkorn(
-                                      color: Colors.white,
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold),),
-                              TextSpan(
-                                  text: "Melanoma",
-                                  style: GoogleFonts.vollkorn(
-                                      color: Color(0xFF468C98),
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold)),
-                            ]),
-                          ),
-                          Text(
-                            "Select an image in the top left corner",
-                            style: GoogleFonts.vollkorn(color: Colors.white, fontSize: 20),
-                          ),
+                              child: Container(
+                                decoration: new BoxDecoration(
+                                  color: Colors.white.withOpacity(0.2),
+                                  borderRadius: BorderRadius.all(Radius.circular(20.0),
+                                  ),
+                                ),
+                                height: Sc.blockSizeVertical * 10.0,
+                                padding: EdgeInsets.all(8.0),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                  RichText(
+                                  text: TextSpan(children: [
+                                    TextSpan(
+                                        text: "Artifical Insight : ",
+                                        style: GoogleFonts.vollkorn(
+                                            color: Colors.white,
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold),),
+                                    TextSpan(
+                                        text: "Melanoma",
+                                        style: GoogleFonts.vollkorn(
+                                            color: Color(0xFF468C98),
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold)),
+                                  ]),
+                                ),
+                                  Text(
+                                  "Select an image in the top left corner",
+                                  style: GoogleFonts.vollkorn(color: Colors.white, fontSize: 20),
+                                  ),
                         ],
-                      ))),
+                      ),),),),
                     );
                   }
                   if (state is TfliteLoaded) {
