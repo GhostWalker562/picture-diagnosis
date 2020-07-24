@@ -1,6 +1,6 @@
 part of 'tflite_bloc.dart';
 
-@immutable
+
 abstract class TfliteEvent {}
 
 class TfliteLoadModel extends TfliteEvent{

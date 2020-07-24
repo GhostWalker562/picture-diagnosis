@@ -3,10 +3,11 @@ import 'dart:io' as Io;
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image/image.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:tflite/tflite.dart';
 import 'package:tflite_flutter/tflite_flutter.dart';
 
@@ -53,14 +54,14 @@ class TfliteBloc extends Bloc<TfliteEvent, TfliteState> {
     yield TfliteLoading();
     try {
       File image = await pickImage();
-      List<dynamic> output = await classifyImage(image);
-      yield TfliteLoaded(image, output);
+      List<dynamic> output = await classifyImage(await resizeMyImage(image));
+      yield TfliteLoaded(await resizeMyImage(image), output);
     } catch (error) {
       yield TfliteUnloaded();
     }
   }
 
-  loadModel({@required String model, @required String labels}) async {
+  loadModel({String model,  String labels}) async {
     await Tflite.loadModel(
       model: model,
       labels: labels,
@@ -76,9 +77,7 @@ class TfliteBloc extends Bloc<TfliteEvent, TfliteState> {
   classifyImage(File image) async {
     var output = await Tflite.runModelOnImage(
       path: image.path,
-      numResults: 2,
-      imageStd: 255.0,
-      imageMean: 0.0,
+      
     );
     print(output);
     return output;
@@ -103,5 +102,27 @@ class TfliteBloc extends Bloc<TfliteEvent, TfliteState> {
     // }
 
     
+  }
+
+    Future<Io.File> resizeMyImage(File resizeThisFile) async {
+
+
+    String tempPath;
+    Directory tempDir = await getTemporaryDirectory();
+    tempPath = tempDir.path;
+
+    // decodeImage will identify the format of the image and use the appropriate
+    // decoder.
+    File myCompressedFile;
+    Image image = decodeImage(resizeThisFile.readAsBytesSync());
+
+    // Resize the image to a 120x? thumbnail (maintaining the aspect ratio).
+    Image thumbnail = copyResize(image, width:240,height:240);
+
+    // Save the thumbnail as a PNG.
+    print('resizeMyImage............tempPath: '+tempPath);
+    myCompressedFile = new Io.File(tempPath+'thumbnail.png')..writeAsBytesSync(encodePng(thumbnail));
+
+   return myCompressedFile;
   }
 }
