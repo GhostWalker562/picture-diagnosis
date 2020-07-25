@@ -87,8 +87,8 @@ class _CancerPageState extends State<CancerPage> with TickerProviderStateMixin {
                                   borderRadius: BorderRadius.all(Radius.circular(20.0),
                                   ),
                                 ),
-                                height: Sc.blockSizeVertical * 10.0,
-                                padding: EdgeInsets.all(8.0),
+                                height: Sc.blockSizeVertical * 15.0,
+                                padding: EdgeInsets.all(16.0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
