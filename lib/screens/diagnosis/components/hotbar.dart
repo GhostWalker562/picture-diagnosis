@@ -46,14 +46,7 @@ class Hotbar extends StatelessWidget {
                 icon: Icon(FontAwesomeIcons.lungs),
                 onPressed: ()=> BlocProvider.of<NavigationBloc>(context).add(RequestNavigate(1)),
               ),
-              // IconButton(
-              //   icon: Icon(AntDesign.hourglass),
-              //   onPressed: ()=> BlocProvider.of<NavigationBloc>(context).add(RequestNavigate(2)),
-              // ),
-              // IconButton(
-              //   icon: Icon(AntDesign.skin),
-              //   onPressed: ()=> BlocProvider.of<NavigationBloc>(context).add(RequestNavigate(3)),
-              // ),
+
             ],
           ),
         ],

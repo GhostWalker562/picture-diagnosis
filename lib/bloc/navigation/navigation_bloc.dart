@@ -19,14 +19,4 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationState> {
     }
   }
 
-  // Stream<NavigationState> _mapRequestState(NavigateTo event) async* {
-  //   yield NavigationLoading();
-  //   try {
-      
-  //     yield NavigationSuccess();
-  //   } catch (error) {
-      
-  //     yield NavigationFailure();
-  //   } 
-  // }
 }

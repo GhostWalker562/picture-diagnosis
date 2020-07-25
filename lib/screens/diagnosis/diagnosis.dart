@@ -35,26 +35,6 @@ class _DiagnosisPageState extends State<DiagnosisPage> {
         child: SafeArea(
                   child: Stack(
             children: [
-          //     CircularParticle(
-          //   key: UniqueKey(),
-          //   awayRadius: 80, 
-          //   numberOfParticles: 50,
-          //   speedOfParticles: 1,
-          //   height: Sc.blockSizeVertical * 100,
-          //   width:  Sc.blockSizeHorizontal * 100,
-          //   onTapAnimation: false,
-          //   particleColor: Colors.white.withAlpha(150),
-          //   awayAnimationDuration: Duration(milliseconds: 600),
-          //   maxParticleSize: 8,
-          //   isRandSize: true,
-          //   isRandomColor: true,
-          //   randColorList: [
-          //     Colors.grey.withAlpha(210),
-          //   ],
-          //   awayAnimationCurve: Curves.easeInOutBack,
-          //   enableHover: true,
-          //   hoverRadius: 90,
-          // ),
 
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
